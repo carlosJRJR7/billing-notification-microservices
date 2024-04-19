@@ -1,6 +1,7 @@
-package br.com.api.billingnotification.infrastructure.controllers.users;
+package br.com.api.billingnotification.infrastructure.controllers.user;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class UserController {
   }
 
   @PostMapping
-  public DataUserResponse createUsers(DataUserRequest dataUsersRequest) {
+  public DataUserResponse createUsers(@RequestBody DataUserRequest dataUsersRequest) {
     User userRequest = usersDTOMapper.toUser(dataUsersRequest);
     User userObj = createUserUseCase.createUser(userRequest);
     DataUserResponse userResponse = usersDTOMapper.toResponse(userObj);

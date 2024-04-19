@@ -1,11 +1,13 @@
-package br.com.api.billingnotification.infrastructure.gateways;
+package br.com.api.billingnotification.infrastructure.gateways.user;
 
-import br.com.api.billingnotification.domain.application.gateways.UserGateways;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.com.api.billingnotification.domain.application.gateways.UserGateway;
 import br.com.api.billingnotification.domain.enterprise.entity.User;
-import br.com.api.billingnotification.infrastructure.persistence.UserEntity;
-import br.com.api.billingnotification.infrastructure.persistence.UserRepository;
+import br.com.api.billingnotification.infrastructure.persistence.user.UserEntity;
+import br.com.api.billingnotification.infrastructure.persistence.user.UserRepository;
 
-public class UserRepositoryGateway implements UserGateways {
+public class UserRepositoryGateway implements UserGateway {
 
   private final UserEntityMapper userEntityMapper;
   private final UserRepository userRepository;
@@ -16,6 +18,7 @@ public class UserRepositoryGateway implements UserGateways {
   }
 
   @Override
+  @Transactional
   public User createUser(User user) {
     UserEntity userEntity = userEntityMapper.toEntity(user);
     UserEntity userEntitySaved = userRepository.save(userEntity);

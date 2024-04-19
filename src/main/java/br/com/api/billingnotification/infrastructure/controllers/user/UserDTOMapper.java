@@ -1,4 +1,6 @@
-package br.com.api.billingnotification.infrastructure.controllers.users;
+package br.com.api.billingnotification.infrastructure.controllers.user;
+
+import java.time.LocalDateTime;
 
 import br.com.api.billingnotification.domain.enterprise.entity.User;
 
@@ -10,7 +12,7 @@ public class UserDTOMapper {
 
   User toUser(DataUserRequest dataUsersRequest) {
     return new User(dataUsersRequest.id(), dataUsersRequest.name(), dataUsersRequest.password(),
-        dataUsersRequest.email(), dataUsersRequest.phone());
+        dataUsersRequest.email(), dataUsersRequest.phone(), LocalDateTime.now());
   }
 
 }

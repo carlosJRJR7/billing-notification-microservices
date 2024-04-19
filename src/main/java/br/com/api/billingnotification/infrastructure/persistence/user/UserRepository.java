@@ -1,4 +1,4 @@
-package br.com.api.billingnotification.infrastructure.persistence;
+package br.com.api.billingnotification.infrastructure.persistence.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

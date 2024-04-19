@@ -1,13 +1,13 @@
 package br.com.api.billingnotification.domain.application.usecases.user;
 
-import br.com.api.billingnotification.domain.application.gateways.UserGateways;
+import br.com.api.billingnotification.domain.application.gateways.UserGateway;
 import br.com.api.billingnotification.domain.enterprise.entity.User;
 
 public class CreateUserUseCase {
 
-  private final UserGateways usersGateways;
+  private final UserGateway usersGateways;
 
-  public CreateUserUseCase(UserGateways usersGateways) {
+  public CreateUserUseCase(UserGateway usersGateways) {
     this.usersGateways = usersGateways;
   }
 
